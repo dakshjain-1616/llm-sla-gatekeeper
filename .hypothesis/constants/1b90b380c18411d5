@@ -1,0 +1,4 @@
+# file: /root/projects/llm-sla-gatekeeper/run_validation.py
+# hypothesis_version: 6.151.9
+
+[1000.0, 200, '\x1b[0m', '\x1b[1;31m', '\x1b[1;32m', '\x1b[1;33m', '\x1b[1m', '\x1b[2m', ',', '--batch', '--config', '--cost', '--history', '--model', '--output', '--output-format', '--profile', '--runs', '--simulate', '--slatarget', '--throughput', '--tokens', '--ui', '--verbose', '-v', '..', '.csv', '.json', '1', '200ms', '5', '50', '?', 'BOLD', 'DIM', 'ERROR', 'FAIL', 'INFO', 'LOG_LEVEL', 'NO_COLOR', 'PASS', 'RESET', 'SLA_BENCHMARK_TOKENS', 'SLA_BENCH_RUNS', 'SLA_MAX_LATENCY_MS', 'SLA_MODEL_PATH', 'SLA_SIMULATION_MODE', 'T', '__main__', 'avg_latency_ms', 'benchmark', 'both', 'confidence_score', 'csv', 'json', 'max_latency_ms', 'mode', 'model_path', 'ms', 'num_runs', 'p50_latency_ms', 'p95_latency_ms', 's', 'sla_max_latency_ms', 'status', 'std_latency_ms', 'store_true', 'timestamp', 'total_tokens', 'true', 'yes', '—', '─', '═', '⚠️ ', '✅', '❌']

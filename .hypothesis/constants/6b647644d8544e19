@@ -1,0 +1,4 @@
+# file: /root/projects/llm-sla-gatekeeper/hardware_info.py
+# hypothesis_version: 6.151.9
+
+[0.0, 1024, 'Apple MPS', 'architecture', 'cpu', 'cpu_count_logical', 'cpu_count_physical', 'cpu_freq_mhz', 'cuda', 'device', 'gpu_available', 'gpu_name', 'gpu_vram_gb', 'mps', 'platform', 'platform_version', 'python_version', 'ram_available_gb', 'ram_total_gb']

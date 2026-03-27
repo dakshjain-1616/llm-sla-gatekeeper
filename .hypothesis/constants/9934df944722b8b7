@@ -1,0 +1,4 @@
+# file: /root/projects/llm-sla-gatekeeper/benchmark.py
+# hypothesis_version: 6.151.9
+
+[0.05, 0.08, 0.1, 0.5, 0.95, 1.0, 3.0, 5.0, 7.0, 13.0, 15.0, 30.0, 1000.0, 4294967295, '/', '1', '2', '5', '50', 'SLA_BENCHMARK_TOKENS', 'SLA_BENCH_RUNS', 'SLA_SIMULATION_MODE', 'SLA_WARMUP_RUNS', '\\d+(?:\\.\\d+)?[bBmM]', 'alpaca', 'baichuan', 'bart', 'base', 'bert', 'bloom', 'chatglm', 'codegen', 'cpu', 'deepseek', 'device', 'electra', 'falcon', 'gemma', 'gpt', 'internlm', 'large', 'llama', 'm', 'mamba', 'mistral', 'mpt', 'opt', 'phi', 'pt', 'qwen', 'real', 'roberta', 'rwkv', 'simulated', 'small', 'starcoder', 't5', 'true', 'vicuna', 'xl', 'xxl', 'yes', 'yi']

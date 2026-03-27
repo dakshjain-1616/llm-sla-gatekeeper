@@ -1,0 +1,4 @@
+# file: /root/projects/llm-sla-gatekeeper/llm_sla_gatekeeper/sla_validator.py
+# hypothesis_version: 6.151.9
+
+[0.0, 0.15, 0.5, 0.75, 1.0, 20.0, 100, 1000, '0', '1.5', '5', '50', '; ', 'ERROR', 'FAIL', 'PASS', 'SLA_BENCHMARK_TOKENS', 'SLA_BENCH_RUNS', 'SLA_P95_MULTIPLIER', 'ValidationResult', 'Z', 'avg_latency_ms', 'avg_ms', 'benchmark', 'confidence_score', 'detail', 'hardware', 'message', 'mode', 'model_path', 'num_runs', 'p50_latency_ms', 'p95_latency_ms', 'p95_ms', 'recommendations', 'simulated', 'sla_config', 'status', 'std_latency_ms', 'timestamp', 'total_tokens', 'tps']

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LLM SLA Gatekeeper — Validation Report</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background:#f8fafc; color:#1e293b; margin:0; padding:24px; }
+    h1   { color:#4f46e5; margin-bottom:4px; }
+    .sub { color:#64748b; margin-bottom:24px; font-size:0.9rem; }
+    .card { background:#fff; border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,.1);
+             padding:20px 24px; margin-bottom:18px; }
+    .badge { display:inline-block; padding:4px 14px; border-radius:20px;
+              font-weight:700; font-size:0.85rem; }
+    .PASS  { background:#dcfce7; color:#16a34a; }
+    .FAIL  { background:#fee2e2; color:#dc2626; }
+    .ERROR { background:#fef3c7; color:#d97706; }
+    table { border-collapse:collapse; width:100%; font-size:0.9rem; }
+    th    { background:#f1f5f9; text-align:left; padding:8px 12px; color:#475569; }
+    td    { padding:7px 12px; border-bottom:1px solid #f1f5f9; }
+    ul    { margin:0; padding-left:18px; }
+    li    { margin:5px 0; line-height:1.5; }
+    .verdict { font-size:1.05rem; font-weight:600; margin:8px 0; }
+    .confidence { font-size:0.8rem; color:#6b7280; margin-top:4px; }
+  </style>
+</head>
+<body>
+  <h1>🚦 LLM SLA Gatekeeper</h1>
+  <div class="sub">Validation Report · Generated 2026-03-27 12:00 UTC</div>
+
+<div class="card">
+  <span class="badge PASS">PASS</span>
+  <p class="verdict">PASS - Ready for Deployment (avg 54.8 ms/tok ≤ 500 ms SLA)</p>
+  <p><strong>Model:</strong> Qwen/Qwen3-8B</p>
+  <p class='confidence'>Confidence score: 75%</p>
+  <table><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody>
+    <tr><td><strong>Avg latency</strong></td><td style='font-family:monospace;'>54.80 ms/tok</td></tr>
+    <tr><td><strong>Std dev</strong></td><td style='font-family:monospace;'>± 1.20 ms</td></tr>
+    <tr><td><strong>95% CI</strong></td><td style='font-family:monospace;'>[53.30, 56.30] ms</td></tr>
+    <tr><td><strong>P50 latency</strong></td><td style='font-family:monospace;'>54.70 ms/tok</td></tr>
+    <tr><td><strong>P95 latency</strong></td><td style='font-family:monospace;'>57.10 ms/tok</td></tr>
+    <tr><td><strong>Throughput</strong></td><td style='font-family:monospace;'>18.20 tok/s</td></tr>
+    <tr><td><strong>Total tokens</strong></td><td style='font-family:monospace;'>350</td></tr>
+    <tr><td><strong>Runs</strong></td><td style='font-family:monospace;'>5</td></tr>
+    <tr><td><strong>Duration</strong></td><td style='font-family:monospace;'>0.001 s</td></tr>
+    <tr><td><strong>Mode</strong></td><td style='font-family:monospace;'>SIMULATED</td></tr>
+    <tr><td><strong>Device</strong></td><td style='font-family:monospace;'>CPU</td></tr>
+  </tbody></table>
+  <h4 style="margin:14px 0 6px;">Recommendations</h4>
+  <ul>
+    <li>All SLA thresholds met. Model is ready for production deployment.</li>
+    <li>Latency headroom is &gt;50%. You may be over-provisioning; consider scaling down compute to reduce costs.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <span class="badge FAIL">FAIL</span>
+  <p class="verdict">FAIL - Exceeds 10ms target on Current Hardware (avg latency 54.8 ms exceeds 10 ms target)</p>
+  <p><strong>Model:</strong> Qwen/Qwen3-8B</p>
+  <p class='confidence'>Confidence score: 75%</p>
+  <table><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody>
+    <tr><td><strong>Avg latency</strong></td><td style='font-family:monospace;'>54.80 ms/tok</td></tr>
+    <tr><td><strong>Std dev</strong></td><td style='font-family:monospace;'>± 1.20 ms</td></tr>
+    <tr><td><strong>95% CI</strong></td><td style='font-family:monospace;'>[53.30, 56.30] ms</td></tr>
+    <tr><td><strong>P50 latency</strong></td><td style='font-family:monospace;'>54.70 ms/tok</td></tr>
+    <tr><td><strong>P95 latency</strong></td><td style='font-family:monospace;'>57.10 ms/tok</td></tr>
+    <tr><td><strong>Throughput</strong></td><td style='font-family:monospace;'>18.20 tok/s</td></tr>
+    <tr><td><strong>Total tokens</strong></td><td style='font-family:monospace;'>350</td></tr>
+    <tr><td><strong>Runs</strong></td><td style='font-family:monospace;'>5</td></tr>
+    <tr><td><strong>Duration</strong></td><td style='font-family:monospace;'>0.001 s</td></tr>
+    <tr><td><strong>Mode</strong></td><td style='font-family:monospace;'>SIMULATED</td></tr>
+    <tr><td><strong>Device</strong></td><td style='font-family:monospace;'>CPU</td></tr>
+  </tbody></table>
+  <h4 style="margin:14px 0 6px;">Recommendations</h4>
+  <ul>
+    <li>Latency is 448% above threshold. Consider quantizing the model (INT8/INT4) to reduce per-token latency.</li>
+    <li>Evaluate deploying on a GPU instance (e.g., T4 or A10G) to achieve sub-100 ms per-token latency.</li>
+    <li>Latency is severely over target. Consider a smaller/distilled model variant for this SLA tier.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <span class="badge ERROR">ERROR</span>
+  <p class="verdict">ERROR - Invalid Model Path</p>
+  <p><strong>Model:</strong> corrupted_file</p>
+
+  <p style='color:#9ca3af;'>No benchmark data.</p>
+  <h4 style="margin:14px 0 6px;">Recommendations</h4>
+  <ul>
+    <li>Verify the model ID or path exists and is accessible.</li>
+    <li>For HuggingFace models ensure you have network access or the model is cached.</li>
+    <li>Check spelling: valid examples are 'Qwen/Qwen3-8B' or 'openai-community/gpt2'.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <span class="badge PASS">PASS</span>
+  <p class="verdict">PASS - Ready for Deployment (avg 29.6 ms/tok ≤ 150 ms SLA)</p>
+  <p><strong>Model:</strong> openai-community/gpt2</p>
+  <p class='confidence'>Confidence score: 75%</p>
+  <table><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody>
+    <tr><td><strong>Avg latency</strong></td><td style='font-family:monospace;'>29.60 ms/tok</td></tr>
+    <tr><td><strong>Std dev</strong></td><td style='font-family:monospace;'>± 0.90 ms</td></tr>
+    <tr><td><strong>95% CI</strong></td><td style='font-family:monospace;'>[28.50, 30.70] ms</td></tr>
+    <tr><td><strong>P50 latency</strong></td><td style='font-family:monospace;'>29.50 ms/tok</td></tr>
+    <tr><td><strong>P95 latency</strong></td><td style='font-family:monospace;'>31.20 ms/tok</td></tr>
+    <tr><td><strong>Throughput</strong></td><td style='font-family:monospace;'>33.80 tok/s</td></tr>
+    <tr><td><strong>Total tokens</strong></td><td style='font-family:monospace;'>350</td></tr>
+    <tr><td><strong>Runs</strong></td><td style='font-family:monospace;'>5</td></tr>
+    <tr><td><strong>Duration</strong></td><td style='font-family:monospace;'>0.001 s</td></tr>
+    <tr><td><strong>Mode</strong></td><td style='font-family:monospace;'>SIMULATED</td></tr>
+    <tr><td><strong>Device</strong></td><td style='font-family:monospace;'>CPU</td></tr>
+  </tbody></table>
+  <h4 style="margin:14px 0 6px;">Recommendations</h4>
+  <ul>
+    <li>All SLA thresholds met. Model is ready for production deployment.</li>
+    <li>Latency headroom is &gt;50%. You may be over-provisioning; consider scaling down compute to reduce costs.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <span class="badge PASS">PASS</span>
+  <p class="verdict">PASS - Ready for Deployment (avg 51.3 ms/tok ≤ 200 ms SLA)</p>
+  <p><strong>Model:</strong> Qwen/Qwen2.5-7B-Instruct</p>
+  <p class='confidence'>Confidence score: 75%</p>
+  <table><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody>
+    <tr><td><strong>Avg latency</strong></td><td style='font-family:monospace;'>51.30 ms/tok</td></tr>
+    <tr><td><strong>Std dev</strong></td><td style='font-family:monospace;'>± 1.40 ms</td></tr>
+    <tr><td><strong>95% CI</strong></td><td style='font-family:monospace;'>[49.60, 53.00] ms</td></tr>
+    <tr><td><strong>P50 latency</strong></td><td style='font-family:monospace;'>51.10 ms/tok</td></tr>
+    <tr><td><strong>P95 latency</strong></td><td style='font-family:monospace;'>54.20 ms/tok</td></tr>
+    <tr><td><strong>Throughput</strong></td><td style='font-family:monospace;'>19.50 tok/s</td></tr>
+    <tr><td><strong>Total tokens</strong></td><td style='font-family:monospace;'>350</td></tr>
+    <tr><td><strong>Runs</strong></td><td style='font-family:monospace;'>5</td></tr>
+    <tr><td><strong>Duration</strong></td><td style='font-family:monospace;'>0.001 s</td></tr>
+    <tr><td><strong>Mode</strong></td><td style='font-family:monospace;'>SIMULATED</td></tr>
+    <tr><td><strong>Device</strong></td><td style='font-family:monospace;'>CPU</td></tr>
+  </tbody></table>
+  <h4 style="margin:14px 0 6px;">Recommendations</h4>
+  <ul>
+    <li>All SLA thresholds met. Model is ready for production deployment.</li>
+    <li>Latency headroom is &gt;50%. You may be over-provisioning; consider scaling down compute to reduce costs.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <span class="badge PASS">PASS</span>
+  <p class="verdict">PASS - Ready for Deployment (avg 23.3 ms/tok ≤ 500 ms SLA)</p>
+  <p><strong>Model:</strong> Qwen/Qwen3-1.7B</p>
+  <p class='confidence'>Confidence score: 75%</p>
+  <table><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody>
+    <tr><td><strong>Avg latency</strong></td><td style='font-family:monospace;'>23.30 ms/tok</td></tr>
+    <tr><td><strong>Std dev</strong></td><td style='font-family:monospace;'>± 0.60 ms</td></tr>
+    <tr><td><strong>95% CI</strong></td><td style='font-family:monospace;'>[22.60, 24.00] ms</td></tr>
+    <tr><td><strong>P50 latency</strong></td><td style='font-family:monospace;'>23.20 ms/tok</td></tr>
+    <tr><td><strong>P95 latency</strong></td><td style='font-family:monospace;'>24.50 ms/tok</td></tr>
+    <tr><td><strong>Throughput</strong></td><td style='font-family:monospace;'>42.90 tok/s</td></tr>
+    <tr><td><strong>Total tokens</strong></td><td style='font-family:monospace;'>350</td></tr>
+    <tr><td><strong>Runs</strong></td><td style='font-family:monospace;'>5</td></tr>
+    <tr><td><strong>Duration</strong></td><td style='font-family:monospace;'>0.001 s</td></tr>
+    <tr><td><strong>Mode</strong></td><td style='font-family:monospace;'>SIMULATED</td></tr>
+    <tr><td><strong>Device</strong></td><td style='font-family:monospace;'>CPU</td></tr>
+  </tbody></table>
+  <h4 style="margin:14px 0 6px;">Recommendations</h4>
+  <ul>
+    <li>All SLA thresholds met. Model is ready for production deployment.</li>
+    <li>Latency headroom is &gt;50%. You may be over-provisioning; consider scaling down compute to reduce costs.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <span class="badge PASS">PASS</span>
+  <p class="verdict">PASS - Ready for Deployment (avg 15.6 ms/tok ≤ 50 ms SLA)</p>
+  <p><strong>Model:</strong> facebook/opt-125m</p>
+  <p class='confidence'>Confidence score: 75%</p>
+  <table><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody>
+    <tr><td><strong>Avg latency</strong></td><td style='font-family:monospace;'>15.60 ms/tok</td></tr>
+    <tr><td><strong>Std dev</strong></td><td style='font-family:monospace;'>± 0.40 ms</td></tr>
+    <tr><td><strong>95% CI</strong></td><td style='font-family:monospace;'>[15.10, 16.10] ms</td></tr>
+    <tr><td><strong>P50 latency</strong></td><td style='font-family:monospace;'>15.50 ms/tok</td></tr>
+    <tr><td><strong>P95 latency</strong></td><td style='font-family:monospace;'>16.40 ms/tok</td></tr>
+    <tr><td><strong>Throughput</strong></td><td style='font-family:monospace;'>64.10 tok/s</td></tr>
+    <tr><td><strong>Total tokens</strong></td><td style='font-family:monospace;'>350</td></tr>
+    <tr><td><strong>Runs</strong></td><td style='font-family:monospace;'>5</td></tr>
+    <tr><td><strong>Duration</strong></td><td style='font-family:monospace;'>0.001 s</td></tr>
+    <tr><td><strong>Mode</strong></td><td style='font-family:monospace;'>SIMULATED</td></tr>
+    <tr><td><strong>Device</strong></td><td style='font-family:monospace;'>CPU</td></tr>
+  </tbody></table>
+  <h4 style="margin:14px 0 6px;">Recommendations</h4>
+  <ul>
+    <li>All SLA thresholds met. Model is ready for production deployment.</li>
+    <li>Latency headroom is &gt;50%. You may be over-provisioning; consider scaling down compute to reduce costs.</li>
+  </ul>
+</div>
+
+</body>
+</html>
