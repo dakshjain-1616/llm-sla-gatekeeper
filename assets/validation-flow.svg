@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 300" width="860" height="300" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0000001a"/>
+    </filter>
+    <filter id="shadow-sm" x="-5%" y="-5%" width="115%" height="125%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#00000014"/>
+    </filter>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#57606a"/>
+    </marker>
+    <marker id="arrowhead-down" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#57606a"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="860" height="300" fill="#f6f8fa" rx="8"/>
+  <rect x="1" y="1" width="858" height="298" fill="none" stroke="#d0d7de" stroke-width="1" rx="8"/>
+
+  <!-- Title -->
+  <text x="430" y="28" text-anchor="middle" font-size="13.5" font-weight="700" fill="#1f2328" letter-spacing="0.2">LLM SLA Gatekeeper — Validation Pipeline</text>
+
+  <!-- ── Box 1: Input ── -->
+  <rect x="24" y="54" width="118" height="72" rx="7" fill="#ffffff" stroke="#d0d7de" stroke-width="1.5" filter="url(#shadow-sm)"/>
+  <rect x="24" y="54" width="118" height="22" rx="7" fill="#eaeef2"/>
+  <rect x="24" y="68" width="118" height="8" rx="0" fill="#eaeef2"/>
+  <text x="83" y="70" text-anchor="middle" font-size="11.5" font-weight="600" fill="#57606a">INPUT</text>
+  <text x="83" y="92" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1f2328">Model Path</text>
+  <text x="83" y="109" text-anchor="middle" font-size="10" fill="#6e7781">HF ID / local path</text>
+  <text x="83" y="122" text-anchor="middle" font-size="10" fill="#6e7781">+ SLA Config</text>
+
+  <!-- Arrow 1 → 2 -->
+  <line x1="142" y1="90" x2="168" y2="90" stroke="#57606a" stroke-width="1.8" marker-end="url(#arrowhead)"/>
+
+  <!-- ── Box 2: Benchmark ── -->
+  <rect x="170" y="54" width="148" height="72" rx="7" fill="#ddf4ff" stroke="#54aeff" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="170" y="54" width="148" height="22" rx="7" fill="#0969da"/>
+  <rect x="170" y="68" width="148" height="8" rx="0" fill="#0969da"/>
+  <text x="244" y="70" text-anchor="middle" font-size="11.5" font-weight="600" fill="#ffffff">BENCHMARK</text>
+  <text x="244" y="92" text-anchor="middle" font-size="12.5" font-weight="700" fill="#0550ae">N Runs</text>
+  <text x="244" y="107" text-anchor="middle" font-size="10" fill="#0550ae">p50 / p95 latency</text>
+  <text x="244" y="120" text-anchor="middle" font-size="10" fill="#0550ae">throughput tok/s</text>
+
+  <!-- Arrow 2 → 3 -->
+  <line x1="318" y1="90" x2="344" y2="90" stroke="#57606a" stroke-width="1.8" marker-end="url(#arrowhead)"/>
+
+  <!-- ── Box 3: SLA Check ── -->
+  <rect x="346" y="54" width="168" height="72" rx="7" fill="#fff8c5" stroke="#d4a72c" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="346" y="54" width="168" height="22" rx="7" fill="#d4a72c"/>
+  <rect x="346" y="68" width="168" height="8" rx="0" fill="#d4a72c"/>
+  <text x="430" y="70" text-anchor="middle" font-size="11.5" font-weight="600" fill="#ffffff">SLA CHECK</text>
+  <text x="430" y="91" text-anchor="middle" font-size="10" fill="#6e4400">avg ≤ max_latency_ms</text>
+  <text x="430" y="104" text-anchor="middle" font-size="10" fill="#6e4400">p95 ≤ p95 × multiplier</text>
+  <text x="430" y="117" text-anchor="middle" font-size="10" fill="#6e4400">throughput ≥ min tok/s</text>
+  <text x="430" y="130" text-anchor="middle" font-size="9.5" fill="#953800">cost ≤ max_cost_per_token</text>
+
+  <!-- Arrow 3 → 4 (PASS, horizontal) -->
+  <line x1="514" y1="90" x2="540" y2="90" stroke="#57606a" stroke-width="1.8" marker-end="url(#arrowhead)"/>
+  <text x="527" y="84" text-anchor="middle" font-size="9" fill="#1a7f37" font-weight="600">PASS</text>
+
+  <!-- ── Box 4: PASS ── -->
+  <rect x="542" y="54" width="148" height="72" rx="7" fill="#dafbe1" stroke="#4ac26b" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="542" y="54" width="148" height="22" rx="7" fill="#1a7f37"/>
+  <rect x="542" y="68" width="148" height="8" rx="0" fill="#1a7f37"/>
+  <text x="616" y="70" text-anchor="middle" font-size="11.5" font-weight="600" fill="#ffffff">PASS  ✓  Exit 0</text>
+  <text x="616" y="92" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1a7f37">Confidence Score</text>
+  <text x="616" y="107" text-anchor="middle" font-size="10" fill="#1a7f37">Recommendations</text>
+  <text x="616" y="120" text-anchor="middle" font-size="10" fill="#1a7f37">Saved to JSONL history</text>
+
+  <!-- Arrow 4 → 5 (Report) -->
+  <line x1="690" y1="90" x2="716" y2="90" stroke="#57606a" stroke-width="1.8" marker-end="url(#arrowhead)"/>
+
+  <!-- ── Box 5: Report ── -->
+  <rect x="718" y="54" width="118" height="72" rx="7" fill="#ffffff" stroke="#d0d7de" stroke-width="1.5" filter="url(#shadow-sm)"/>
+  <rect x="718" y="54" width="118" height="22" rx="7" fill="#eaeef2"/>
+  <rect x="718" y="68" width="118" height="8" rx="0" fill="#eaeef2"/>
+  <text x="777" y="70" text-anchor="middle" font-size="11.5" font-weight="600" fill="#57606a">REPORT</text>
+  <text x="777" y="92" text-anchor="middle" font-size="10.5" font-weight="600" fill="#1f2328">JSON  ·  CSV</text>
+  <text x="777" y="107" text-anchor="middle" font-size="10" fill="#57606a">HTML Report</text>
+  <text x="777" y="120" text-anchor="middle" font-size="10" fill="#57606a">CI/CD exit code</text>
+
+  <!-- ── FAIL branch: downward arrow from SLA Check ── -->
+  <!-- Vertical line down from SLA Check box -->
+  <line x1="430" y1="126" x2="430" y2="170" stroke="#57606a" stroke-width="1.8"/>
+  <line x1="430" y1="170" x2="430" y2="196" stroke="#57606a" stroke-width="1.8" marker-end="url(#arrowhead-down)"/>
+  <text x="442" y="164" font-size="9" fill="#cf222e" font-weight="600">FAIL</text>
+
+  <!-- ── Box: FAIL/ERROR ── -->
+  <rect x="330" y="198" width="200" height="68" rx="7" fill="#ffebe9" stroke="#ff8182" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="330" y="198" width="200" height="22" rx="7" fill="#cf222e"/>
+  <rect x="330" y="212" width="200" height="8" rx="0" fill="#cf222e"/>
+  <text x="430" y="214" text-anchor="middle" font-size="11.5" font-weight="600" fill="#ffffff">FAIL / ERROR  ·  Exit 1/2</text>
+  <text x="430" y="234" text-anchor="middle" font-size="10" fill="#a40e26">Actionable recommendations</text>
+  <text x="430" y="248" text-anchor="middle" font-size="10" fill="#a40e26">Retry suggestions</text>
+  <text x="430" y="262" text-anchor="middle" font-size="9.5" fill="#a40e26">Saved to JSONL history</text>
+
+  <!-- Output format pills -->
+  <rect x="160" y="244" width="54" height="20" rx="10" fill="#0969da"/>
+  <text x="187" y="258" text-anchor="middle" font-size="10.5" font-weight="600" fill="#ffffff">JSON</text>
+
+  <rect x="222" y="244" width="52" height="20" rx="10" fill="#1a7f37"/>
+  <text x="248" y="258" text-anchor="middle" font-size="10.5" font-weight="600" fill="#ffffff">CSV</text>
+
+  <rect x="282" y="244" width="38" height="20" rx="10" fill="#8250df"/>
+  <text x="301" y="258" text-anchor="middle" font-size="10" font-weight="600" fill="#ffffff">HTML</text>
+
+  <!-- Confidence pill on PASS side -->
+  <rect x="570" y="142" width="92" height="20" rx="10" fill="#dafbe1" stroke="#4ac26b" stroke-width="1"/>
+  <text x="616" y="156" text-anchor="middle" font-size="9.5" fill="#1a7f37">0–1 confidence</text>
+
+  <rect x="670" y="142" width="116" height="20" rx="10" fill="#ddf4ff" stroke="#54aeff" stroke-width="1"/>
+  <text x="728" y="156" text-anchor="middle" font-size="9.5" fill="#0550ae">JSONL history track</text>
+
+  <!-- Footer -->
+  <text x="430" y="289" text-anchor="middle" font-size="9.5" fill="#8c959f">Simulation: latency = 5×B + 15 ms  ·  Confidence scored  ·  JSONL history  ·  CI/CD ready</text>
+</svg>

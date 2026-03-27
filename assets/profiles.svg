@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 320" width="860" height="320" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif">
+  <defs>
+    <filter id="shadow" x="-5%" y="-10%" width="115%" height="130%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#0000001a"/>
+    </filter>
+    <filter id="bar-shadow" x="-2%" y="-10%" width="110%" height="130%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#00000018"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="860" height="320" fill="#f6f8fa" rx="8"/>
+  <rect x="1" y="1" width="858" height="318" fill="none" stroke="#d0d7de" stroke-width="1" rx="8"/>
+
+  <!-- Title -->
+  <text x="430" y="28" text-anchor="middle" font-size="14" font-weight="700" fill="#1f2328" letter-spacing="0.2">Built-in SLA Profiles</text>
+  <text x="430" y="44" text-anchor="middle" font-size="10.5" fill="#57606a">Max latency (ms) — bar length proportional to 5000 ms scale</text>
+
+  <!-- Chart area background -->
+  <rect x="22" y="54" width="816" height="162" rx="5" fill="#ffffff" stroke="#d0d7de" stroke-width="1" filter="url(#shadow)"/>
+
+  <!-- Scale lines (vertical) at 0, 1000, 2000, 5000ms mapped to bar area x=150..590 width=440 -->
+  <!-- bar start x=150, scale: 5000ms = 440px, so 1px = 5000/440 ms -->
+  <!-- 1000ms = 88px => x=238 -->
+  <!-- 2000ms = 176px => x=326 -->
+  <!-- 5000ms = 440px => x=590 -->
+  <line x1="150" y1="58" x2="150" y2="210" stroke="#d0d7de" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="238" y1="58" x2="238" y2="210" stroke="#d0d7de" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="326" y1="58" x2="326" y2="210" stroke="#d0d7de" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="590" y1="58" x2="590" y2="210" stroke="#d0d7de" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <!-- Scale labels -->
+  <text x="150" y="222" text-anchor="middle" font-size="9.5" fill="#8c959f">0</text>
+  <text x="238" y="222" text-anchor="middle" font-size="9.5" fill="#8c959f">1000 ms</text>
+  <text x="326" y="222" text-anchor="middle" font-size="9.5" fill="#8c959f">2000 ms</text>
+  <text x="590" y="222" text-anchor="middle" font-size="9.5" fill="#8c959f">5000 ms</text>
+
+  <!-- Row height = 162/5 = 32.4px each, starting y=54 -->
+  <!-- Row centers: 70, 102.4, 134.8, 167.2, 199.6 -->
+
+  <!-- ── ROW 1: chatbot — 150ms → 150/5000*440 = 13.2px ── -->
+  <text x="28" y="76" font-size="11.5" font-weight="600" fill="#1f2328">chatbot</text>
+  <rect x="150" y="62" width="13" height="22" rx="3" fill="#0969da" filter="url(#bar-shadow)"/>
+  <text x="169" y="77" font-size="10" fill="#0969da" font-weight="600">150 ms</text>
+  <!-- tok/s badge -->
+  <rect x="610" y="63" width="76" height="20" rx="10" fill="#ddf4ff" stroke="#54aeff" stroke-width="1"/>
+  <text x="648" y="77" text-anchor="middle" font-size="10" fill="#0550ae" font-weight="600">10 tok/s</text>
+  <!-- use case -->
+  <text x="700" y="77" font-size="10" fill="#57606a">Interactive chat</text>
+
+  <!-- ── ROW 2: realtime — 50ms → 50/5000*440 = 4.4px ── -->
+  <text x="28" y="108" font-size="11.5" font-weight="600" fill="#1f2328">realtime</text>
+  <rect x="150" y="94" width="4" height="22" rx="2" fill="#1a7f37" filter="url(#bar-shadow)"/>
+  <text x="160" y="109" font-size="10" fill="#1a7f37" font-weight="600">50 ms</text>
+  <rect x="610" y="95" width="76" height="20" rx="10" fill="#dafbe1" stroke="#4ac26b" stroke-width="1"/>
+  <text x="648" y="109" text-anchor="middle" font-size="10" fill="#1a7f37" font-weight="600">50 tok/s</text>
+  <text x="700" y="109" font-size="10" fill="#57606a">Streaming / voice</text>
+
+  <!-- ── ROW 3: batch — 2000ms → 2000/5000*440 = 176px ── -->
+  <text x="28" y="140" font-size="11.5" font-weight="600" fill="#1f2328">batch</text>
+  <rect x="150" y="126" width="176" height="22" rx="3" fill="#8250df" filter="url(#bar-shadow)"/>
+  <text x="332" y="141" font-size="10" fill="#8250df" font-weight="600">2000 ms</text>
+  <rect x="610" y="127" width="76" height="20" rx="10" fill="#fbefff" stroke="#c297ff" stroke-width="1"/>
+  <text x="648" y="141" text-anchor="middle" font-size="10" fill="#8250df" font-weight="600">1 tok/s</text>
+  <text x="700" y="141" font-size="10" fill="#57606a">Async / bulk jobs</text>
+
+  <!-- ── ROW 4: edge — 500ms → 500/5000*440 = 44px ── -->
+  <text x="28" y="172" font-size="11.5" font-weight="600" fill="#1f2328">edge</text>
+  <rect x="150" y="158" width="44" height="22" rx="3" fill="#d4a72c" filter="url(#bar-shadow)"/>
+  <text x="200" y="173" font-size="10" fill="#9a6700" font-weight="600">500 ms</text>
+  <rect x="610" y="159" width="76" height="20" rx="10" fill="#fff8c5" stroke="#d4a72c" stroke-width="1"/>
+  <text x="648" y="173" text-anchor="middle" font-size="10" fill="#9a6700" font-weight="600">2 tok/s</text>
+  <text x="700" y="173" font-size="10" fill="#57606a">IoT / constrained</text>
+
+  <!-- ── ROW 5: dev — 5000ms → 440px ── -->
+  <text x="28" y="204" font-size="11.5" font-weight="600" fill="#1f2328">dev</text>
+  <rect x="150" y="190" width="440" height="22" rx="3" fill="#d0d7de" filter="url(#bar-shadow)"/>
+  <text x="596" y="205" font-size="10" fill="#57606a" font-weight="600">5000 ms</text>
+  <rect x="610" y="191" width="76" height="20" rx="10" fill="#eaeef2" stroke="#d0d7de" stroke-width="1"/>
+  <text x="648" y="205" text-anchor="middle" font-size="10" fill="#57606a" font-weight="600">—</text>
+  <text x="700" y="205" font-size="10" fill="#57606a">Local dev / CI</text>
+
+  <!-- ── Data table ── -->
+  <!-- Table header -->
+  <rect x="22" y="232" width="816" height="22" rx="0" fill="#eaeef2" stroke="#d0d7de" stroke-width="0"/>
+  <rect x="22" y="232" width="816" height="22" rx="4" fill="#eaeef2"/>
+  <rect x="22" y="246" width="816" height="8" rx="0" fill="#eaeef2"/>
+  <line x1="22" y1="232" x2="838" y2="232" stroke="#d0d7de" stroke-width="1"/>
+  <text x="60" y="247" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1f2328">Profile</text>
+  <text x="220" y="247" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1f2328">Max Latency</text>
+  <text x="380" y="247" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1f2328">Min Throughput</text>
+  <text x="620" y="247" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1f2328">Primary Use Case</text>
+  <!-- Table dividers -->
+  <line x1="130" y1="232" x2="130" y2="316" stroke="#d0d7de" stroke-width="1"/>
+  <line x1="302" y1="232" x2="302" y2="316" stroke="#d0d7de" stroke-width="1"/>
+  <line x1="460" y1="232" x2="460" y2="316" stroke="#d0d7de" stroke-width="1"/>
+  <line x1="22" y1="254" x2="838" y2="254" stroke="#d0d7de" stroke-width="1"/>
+
+  <!-- Table rows -->
+  <!-- chatbot -->
+  <rect x="22" y="254" width="816" height="12" rx="0" fill="#ffffff"/>
+  <text x="60" y="265" text-anchor="middle" font-size="10" fill="#1f2328" font-weight="600">chatbot</text>
+  <text x="220" y="265" text-anchor="middle" font-size="10" fill="#0969da">150 ms</text>
+  <text x="380" y="265" text-anchor="middle" font-size="10" fill="#0969da">10 tok/s</text>
+  <text x="620" y="265" text-anchor="middle" font-size="10" fill="#57606a">Interactive chatbots, customer support</text>
+  <line x1="22" y1="268" x2="838" y2="268" stroke="#eaeef2" stroke-width="1"/>
+
+  <!-- realtime -->
+  <text x="60" y="280" text-anchor="middle" font-size="10" fill="#1f2328" font-weight="600">realtime</text>
+  <text x="220" y="280" text-anchor="middle" font-size="10" fill="#1a7f37">50 ms</text>
+  <text x="380" y="280" text-anchor="middle" font-size="10" fill="#1a7f37">50 tok/s</text>
+  <text x="620" y="280" text-anchor="middle" font-size="10" fill="#57606a">Streaming, voice assistants, low-latency UIs</text>
+  <line x1="22" y1="283" x2="838" y2="283" stroke="#eaeef2" stroke-width="1"/>
+
+  <!-- batch -->
+  <rect x="22" y="283" width="816" height="12" rx="0" fill="#fbfbfb"/>
+  <text x="60" y="294" text-anchor="middle" font-size="10" fill="#1f2328" font-weight="600">batch</text>
+  <text x="220" y="294" text-anchor="middle" font-size="10" fill="#8250df">2000 ms</text>
+  <text x="380" y="294" text-anchor="middle" font-size="10" fill="#8250df">1 tok/s</text>
+  <text x="620" y="294" text-anchor="middle" font-size="10" fill="#57606a">Async pipelines, document processing</text>
+  <line x1="22" y1="297" x2="838" y2="297" stroke="#eaeef2" stroke-width="1"/>
+
+  <!-- edge -->
+  <text x="60" y="308" text-anchor="middle" font-size="10" fill="#1f2328" font-weight="600">edge</text>
+  <text x="220" y="308" text-anchor="middle" font-size="10" fill="#9a6700">500 ms</text>
+  <text x="380" y="308" text-anchor="middle" font-size="10" fill="#9a6700">2 tok/s</text>
+  <text x="620" y="308" text-anchor="middle" font-size="10" fill="#57606a">IoT devices, on-device / resource constrained</text>
+  <line x1="22" y1="311" x2="838" y2="311" stroke="#eaeef2" stroke-width="1"/>
+
+  <!-- dev -->
+  <rect x="22" y="311" width="816" height="5" rx="0" fill="#fbfbfb"/>
+
+  <!-- Footer -->
+  <text x="430" y="310" text-anchor="middle" font-size="9.5" fill="#8c959f">All profiles overridable via env vars  ·  Use --profile=&lt;name&gt; in CLI  ·  dev: 5000 ms, no throughput floor</text>
+</svg>
